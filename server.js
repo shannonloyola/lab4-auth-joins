@@ -4,6 +4,7 @@ const cors = require('cors');
 const db = require('./config/db');
 
 const authRoutes = require('./routes/authRoutes');
+const reportRoutes = require('./routes/reportRoutes'); 
 
 const app = express();
 app.use(express.json());
@@ -17,6 +18,7 @@ app.get('/api/health', (req, res) => {
 
 // Routes
 app.use('/api', authRoutes);
+app.use('/api', reportRoutes);
 
 const PORT = process.env.SERVER_PORT || 3000;
 app.listen(PORT, () => console.log(`🚀 Server running at http://localhost:${PORT}`));
